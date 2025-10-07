@@ -13,7 +13,7 @@ This collection allows you to fetch NBA teams, players, games and match stats us
 
 ### ✅ Prerequisites
 
-- [Postman](https://www.postman.com/downloads/) installed on your machine
+- [Postman](https://www.postman.com/downloads/) installed.
 
 
 ## 📁 What's Inside
@@ -131,5 +131,6 @@ X-RapidAPI-Host: free-nba.p.rapidapi.com
 **Muhammed Abdelrahman**
 
 GitHub: [@muhammedabdelrahman18](https://github.com/muhammedabdelrahman18)
+
 
 
