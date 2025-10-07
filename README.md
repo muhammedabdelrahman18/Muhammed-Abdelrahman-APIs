@@ -2,6 +2,12 @@
 
 This collection allows you to fetch NBA teams, players, games and match stats using a simple and clean interface.
 
+<img width="299" height="254" alt="NBA Categories" src="https://github.com/user-attachments/assets/47dc2ceb-9a97-4aff-ae50-6ee75ba8088f" />
+<img width="1366" height="768" alt="Collection Scripts" src="https://github.com/user-attachments/assets/0e914440-bd2f-477e-bb95-9f164e304246" />
+
+
+
+
 ---
 
 
@@ -72,17 +78,17 @@ This collection allows you to fetch NBA teams, players, games and match stats us
 }
 
 ```
+<img width="1366" height="768" alt="request1 test script" src="https://github.com/user-attachments/assets/b9ccd110-c995-4f62-9f3b-73bdaf2bfba0" />
+
+
 ### 📥 2. Get Team by CODE
 
-- **Method:** `GET`  
-- **URL:** `https://free-nba.p.rapidapi.com/teams/{team_id}`  
-- Replace `{team_id}` with an actual team ID (e.g., `14` for Los Angeles Lakers).
-
-### ✅ Example
 
 **Request:**
 
-GET https://free-nba.p.rapidapi.com/teams?code=ATL
+- **Method:** `GET`
+-  GET https://free-nba.p.rapidapi.com/teams?code=ATL
+
 
 **Required Headers:**
 
@@ -121,10 +127,12 @@ X-RapidAPI-Host: free-nba.p.rapidapi.com
 }
 
 ```
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/53e0d02f-92a6-4001-9218-a3782ee2dde6" />
+<img width="1366" height="768" alt="request2 test script" src="https://github.com/user-attachments/assets/981f6216-bd83-42db-a41c-738b5c7a95ce" />
+
 
 ### 🧑‍💻 Author
 
 **Muhammed Abdelrahman**
 
 GitHub: [@muhammedabdelrahman18](https://github.com/muhammedabdelrahman18)
+
