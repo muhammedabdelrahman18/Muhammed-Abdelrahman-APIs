@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "f1260877-f0e2-463b-b820-5bc96c22e0e8",
+		"name": "NBA APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31259721"
+	},
+	"item": [
+		{
+			"name": "Seasons",
+			"item": [
+				{
+					"name": "List Seasons",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://v2.nba.api-sports.io/seasons",
+							"protocol": "https",
+							"host": [
+								"v2",
+								"nba",
+								"api-sports",
+								"io"
+							],
+							"path": [
+								"seasons"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leagues",
+			"item": [
+				{
+					"name": "List leagues",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}leagues",
+							"host": [
+								"{{url}}leagues"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Games",
+			"item": [
+				{
+					"name": "Games per ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"// Check if arena city is Brooklyn\r",
+									"var cityIsBrooklyn = jsonData.response[0].arena.city === \"Brooklyn\";\r",
+									"\r",
+									"pm.test(\"Arena city is Brooklyn\", function () {\r",
+									"    pm.expect(cityIsBrooklyn).to.eql(true);\r",
+									"});\r",
+									"\r",
+									" //Check if arena country is USA is Brooklyn\r",
+									"pm.test(\"arena country is USA\", function () {\r",
+									"    pm.expect(jsonData.response[0].arena.country).to.eql(\"USA\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}games?id=8899",
+							"host": [
+								"{{url}}games"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8899"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games per Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}games?date=2025-10-07",
+							"host": [
+								"{{url}}games"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-10-07"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games Between 2 Teams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"arena Name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.response[0].arena.name).to.eql(\"Philips Arena\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}games?h2h=1-2",
+							"host": [
+								"{{url}}games"
+							],
+							"query": [
+								{
+									"key": "h2h",
+									"value": "1-2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teams",
+			"item": [
+				{
+					"name": "List Teams",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teams",
+							"host": [
+								"{{url}}teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teams Per Division",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var team = jsonData.response.find(team => team.id === 5);\r",
+									"\r",
+									"// check: When id = 5, city should be Charlotte\r",
+									"pm.test(\"When id = 5, city = Charlotte\", function () {\r",
+									"    pm.expect(team.city).to.eql(\"Charlotte\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teams?division=Southeast",
+							"host": [
+								"{{url}}teams"
+							],
+							"query": [
+								{
+									"key": "division",
+									"value": "Southeast"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Teams Per Code",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teams?code=ATL",
+							"host": [
+								"{{url}}teams"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "ATL"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Players",
+			"item": [
+				{
+					"name": "Players Per Team and Season",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}players?team=1&season=2021",
+							"host": [
+								"{{url}}players"
+							],
+							"query": [
+								{
+									"key": "team",
+									"value": "1"
+								},
+								{
+									"key": "season",
+									"value": "2021"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Players Per Country",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}players?country=spain",
+							"host": [
+								"{{url}}players"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "spain"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Standings",
+			"item": [
+				{
+					"name": "Standings Per Season",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}standings?league=standard&season=2023",
+							"host": [
+								"{{url}}standings"
+							],
+							"query": [
+								{
+									"key": "league",
+									"value": "standard"
+								},
+								{
+									"key": "season",
+									"value": "2023"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statistics",
+			"item": [
+				{
+					"name": "Statistics (Games)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"No.of fastBreakPoints and longestRun\", function () {\r",
+									"    pm.expect(jsonData.response[1].statistics[0].fastBreakPoints).to.eql(8);\r",
+									"    pm.expect(jsonData.response[1].statistics[0].longestRun).to.eql(12);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}games/statistics?id=10403",
+							"host": [
+								"{{url}}games"
+							],
+							"path": [
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10403"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Statistics (Teams)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"No.of blocks and turnovers for this season\", function () {\r",
+									"    pm.expect(jsonData.response[0].blocks).to.eql(453);\r",
+									"    pm.expect(jsonData.response[0].turnovers).to.eql(1201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teams/statistics?id=1&season=2022",
+							"host": [
+								"{{url}}teams"
+							],
+							"path": [
+								"statistics"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "season",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search (Teams)",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teams?search=atl",
+							"host": [
+								"{{url}}teams"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "atl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search (Players)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"   var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"checking firstname and Jersey No. of firstname\", function () {\r",
+									"    pm.expect(jsonData.response[0].firstname).to.eql(\"LeBron\");\r",
+									"    pm.expect(jsonData.response[0].leagues.standard.jersey).to.eql(6);\r",
+									"    });"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{key}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-RapidAPI-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}players?search=james",
+							"host": [
+								"{{url}}players"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "james",
+									"description": "Search a Player by lastname"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {\r",
+					"    pm.response.to.have.status(200);\r",
+					"});\r",
+					"\r",
+					"pm.test(\"Response time is less than 1s\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+					"});"
+				]
+			}
+		}
+	]
+}
